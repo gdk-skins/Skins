@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Troll Skins Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="troll.html">Troll</a>
+  </div>
+
+  <button class="toggle-dark" id="darkToggle">
+    <svg class="icon-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64 13.11A9 9 0 0 1 11 2a9 9 0 1 0 10.64 11.11z"/></svg>
+    <svg class="icon-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 6.95-1.41-1.41M6.46 6.46 5.05 5.05m13.9 0-1.41 1.41M6.46 17.54l-1.41 1.41"/></svg>
+  </button>
+
+  <div class="logo">
+    <img src="glight.png" alt="GDK Logo Light" class="light-mode-logo" />
+    <img src="gdark.png" alt="GDK Logo Dark" class="dark-mode-logo" />
+  </div>
+
+  <div class="gallery" id="gallery"></div>
+
+  <script>
+    const images = [
+      "troll1.png",
+      "troll2.png",
+      "troll3.png",
+      "troll4.png",
+      "troll5.png",
+      "troll6.png",
+      "troll7.png",
+      "troll8.png",
+      "troll9.png"
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    images.forEach(file => {
+      const img = document.createElement("img");
+      img.src = encodeURI(file);
+      img.alt = file;
+      img.loading = "lazy";
+      img.addEventListener("click", () => {
+        document.querySelectorAll(".gallery img.active").forEach(el => {
+          if (el !== img) el.classList.remove("active");
+        });
+        img.classList.toggle("active");
+      });
+      gallery.appendChild(img);
+    });
+
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("menu");
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      menu.classList.toggle("show");
+    });
+
+    const darkToggle = document.getElementById("darkToggle");
+    darkToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+  </script>
+</body>
+</html>
