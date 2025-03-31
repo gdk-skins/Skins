@@ -32,11 +32,18 @@
       right: 20px;
       width: 32px;
       height: 32px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/e/e1/Full_Moon_icon_-_white_outline.svg') center center no-repeat;
       background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
       border: none;
       cursor: pointer;
       z-index: 999;
+    }
+    body:not(.dark) .toggle-dark {
+      background-image: url('dark.png');
+    }
+    body.dark .toggle-dark {
+      background-image: url('light.png');
     }
     .gallery {
       display: grid;
