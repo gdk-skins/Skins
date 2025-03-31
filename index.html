@@ -21,6 +21,7 @@
       justify-items: center;
       max-width: 800px;
       margin: 0 auto;
+      transition: transform 0.4s ease;
     }
     .gallery img {
       width: 100%;
@@ -30,14 +31,20 @@
       object-fit: cover;
       border-radius: 50%;
       border: 2px solid #ccc;
-      transition: transform 0.4s ease;
+      transition: transform 0.4s ease, opacity 0.3s ease;
       cursor: pointer;
+      z-index: 1;
     }
     .gallery img:hover {
       transform: scale(1.15);
     }
-    .gallery img:active {
-      transform: scale(1.5);
+    .gallery.expanded img:not(.active) {
+      opacity: 0.2;
+      transform: scale(0.9);
+    }
+    .gallery img.active {
+      transform: scale(2.5) !important;
+      z-index: 10;
     }
   </style>
 </head>
@@ -538,6 +545,14 @@
       const img = document.createElement("img");
       img.src = encodeURI(file);
       img.alt = file;
+      img.addEventListener("click", () => {
+        const currentActive = document.querySelector(".gallery img.active");
+        if (currentActive && currentActive !== img) {
+          currentActive.classList.remove("active");
+        }
+        img.classList.toggle("active");
+        gallery.classList.toggle("expanded", !!document.querySelector(".gallery img.active"));
+      });
       gallery.appendChild(img);
     });
   </script>
