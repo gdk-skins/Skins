@@ -8,10 +8,12 @@
     :root {
       --bg-color: #f9f9f9;
       --text-color: #000;
+      --border-color: #ccc;
     }
     body.dark {
       --bg-color: #121212;
       --text-color: #fff;
+      --border-color: #444;
     }
     body {
       font-family: sans-serif;
@@ -50,7 +52,7 @@
       aspect-ratio: 1 / 1;
       object-fit: cover;
       border-radius: 50%;
-      border: 2px solid #ccc;
+      border: 2px solid var(--border-color);
       transition: transform 0.4s cubic-bezier(0.25, 1.5, 0.5, 1);
       cursor: pointer;
     }
