@@ -78,16 +78,16 @@
     }
     .hamburger {
       position: fixed;
-      top: 20px;
+      top: 22px;
       left: 20px;
-      width: 40px;
-      height: 30px;
+      width: 28px;
+      height: 22px;
       cursor: pointer;
       z-index: 999;
     }
     .hamburger span {
       display: block;
-      height: 4px;
+      height: 3px;
       width: 100%;
       background: var(--icon-color);
       border-radius: 4px;
@@ -96,18 +96,39 @@
       transition: 0.3s ease-in-out;
     }
     .hamburger span:nth-child(1) { top: 0; }
-    .hamburger span:nth-child(2) { top: 13px; }
+    .hamburger span:nth-child(2) { top: 9px; }
     .hamburger span:nth-child(3) { bottom: 0; }
     .hamburger.active span:nth-child(1) {
       transform: rotate(45deg);
-      top: 13px;
+      top: 9px;
     }
     .hamburger.active span:nth-child(2) {
       opacity: 0;
     }
     .hamburger.active span:nth-child(3) {
       transform: rotate(-45deg);
-      bottom: 13px;
+      bottom: 9px;
+    }
+    .menu {
+      position: fixed;
+      top: 70px;
+      left: 20px;
+      background: var(--bg-color);
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: none;
+      z-index: 998;
+    }
+    .menu a {
+      color: var(--text-color);
+      text-decoration: none;
+      display: block;
+      margin: 6px 0;
+      font-weight: bold;
+    }
+    .menu.show {
+      display: block;
     }
     .gallery {
       display: grid;
@@ -138,6 +159,10 @@
     <span></span>
     <span></span>
     <span></span>
+  </div>
+  <div class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="troll.html">Troll</a>
   </div>
 
   <button class="toggle-dark" id="darkToggle">
@@ -664,8 +689,11 @@
       gallery.appendChild(img);
     });
 
-    document.getElementById("hamburger").addEventListener("click", () => {
-      document.getElementById("hamburger").classList.toggle("active");
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("menu");
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      menu.classList.toggle("show");
     });
 
     const darkToggle = document.getElementById("darkToggle");
