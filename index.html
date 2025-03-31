@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Skins</title>
+  <style>
+    body { font-family: sans-serif; background: #fff; margin: 20px; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 10px; }
+    .gallery img { width: 200px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>My Art Gallery</h1>
+  <div class="gallery" id="gallery"></div>
+
+  <script>
+    // List of image filenames (newest first)
+    const images = [
+      "2025-03-30-title3.png",
+      "2025-03-29-title2.png",
+      "2025-03-28-title1.png"
+      // Add more filenames here
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    images.forEach(file => {
+      const img = document.createElement("img");
+      img.src = file;
+      img.alt = file;
+      gallery.appendChild(img);
+    });
+  </script>
+</body>
+</html>
