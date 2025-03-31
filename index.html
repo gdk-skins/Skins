@@ -26,11 +26,12 @@
       object-fit: cover;
       border-radius: 50%;
       border: 2px solid #ccc;
-      transition: transform 0.2s;
+      transition: transform 0.2s ease;
       cursor: pointer;
     }
-    .gallery img:hover {
-      transform: scale(1.05);
+    .gallery img:hover,
+    .gallery img:active {
+      transform: scale(1.15);
     }
     @media (min-width: 768px) {
       .gallery img {
