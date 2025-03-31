@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Art Gallery</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GDK Skins Gallery</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      margin: 20px;
+      font-family: sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
     }
     h1 {
       text-align: center;
@@ -20,61 +20,34 @@
       gap: 10px;
     }
     .gallery img {
-      width: 150px;
-      height: auto;
+      width: 180px;
       border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .gallery img:hover {
-      transform: scale(1.1);
-    }
-    /* Lightbox styles */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-    }
-    .lightbox img {
-      max-width: 90%;
-      max-height: 80%;
-    }
-    .lightbox:target {
-      display: flex;
-    }
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 30px;
-      color: white;
-      text-decoration: none;
+      border: 1px solid #ccc;
     }
   </style>
 </head>
 <body>
-  <h1>My Art Gallery</h1>
-  <div class="gallery">
-    <!-- Thumbnails will be inserted here by JavaScript -->
-  </div>
-
-  <!-- Lightbox container -->
-  <div id="lightbox" class="lightbox">
-    <a href="#" class="lightbox-close">&times;</a>
-    <img id="lightbox-img" src="" alt="">
-  </div>
+  <h1>GDK Skins Gallery</h1>
+  <div class="gallery" id="gallery"></div>
 
   <script>
-    // Array of image filenames in descending order
-    const images = [
-      "483 - description.png",
-      "482 - description.png",
-      "481 - description.png",
-      // ... continue
+    // Generate image names from 483 to 1
+    const images = [];
+    for (let i = 483; i >= 1; i--) {
+      images.push(`${i} - placeholder.png`);
+    }
+
+    // Create the image elements
+    const gallery = document.getElementById("gallery");
+    images.forEach(file => {
+      const img = document.createElement("img");
+      img.src = file;
+      img.alt = file;
+      img.onerror = () => img.remove(); // remove if image doesn't exist
+      gallery.appendChild(img);
+    });
+  </script>
+</body>
+</html>
+
 
