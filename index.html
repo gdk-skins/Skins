@@ -23,8 +23,25 @@
       margin: 0;
       transition: background 0.3s, color 0.3s;
     }
-    h1 {
-      text-align: center;
+    .logo {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0 30px;
+    }
+    .logo img {
+      max-height: 60px;
+    }
+    .logo .light-mode-logo {
+      display: block;
+    }
+    .logo .dark-mode-logo {
+      display: none;
+    }
+    body.dark .logo .light-mode-logo {
+      display: none;
+    }
+    body.dark .logo .dark-mode-logo {
+      display: block;
     }
     .toggle-dark {
       position: fixed;
@@ -88,7 +105,11 @@
     <svg class="icon-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 6.95-1.41-1.41M6.46 6.46 5.05 5.05m13.9 0-1.41 1.41M6.46 17.54l-1.41 1.41"/></svg>
   </button>
 
-  <h1>GDK Skins Gallery</h1>
+  <div class="logo">
+    <img src="glight.png" alt="GDK Logo Light" class="light-mode-logo" />
+    <img src="gdark.png" alt="GDK Logo Dark" class="dark-mode-logo" />
+  </div>
+
   <div class="gallery" id="gallery"></div>
 
   <script>
