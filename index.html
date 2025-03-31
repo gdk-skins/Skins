@@ -9,11 +9,13 @@
       --bg-color: #f9f9f9;
       --text-color: #000;
       --border-color: #ccc;
+      --icon-color: #000;
     }
     body.dark {
       --bg-color: #121212;
       --text-color: #fff;
       --border-color: #444;
+      --icon-color: #fff;
     }
     body {
       font-family: sans-serif;
@@ -62,18 +64,50 @@
     }
     .toggle-dark .icon-light {
       display: none;
-      fill: #000;
+      fill: var(--icon-color);
     }
     .toggle-dark .icon-dark {
       display: block;
-      fill: #000;
+      fill: var(--icon-color);
     }
     body.dark .toggle-dark .icon-light {
       display: block;
-      fill: #fff;
     }
     body.dark .toggle-dark .icon-dark {
       display: none;
+    }
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 30px;
+      cursor: pointer;
+      z-index: 999;
+    }
+    .hamburger span {
+      display: block;
+      height: 4px;
+      width: 100%;
+      background: var(--icon-color);
+      border-radius: 4px;
+      position: absolute;
+      left: 0;
+      transition: 0.3s ease-in-out;
+    }
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 13px; }
+    .hamburger span:nth-child(3) { bottom: 0; }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 13px;
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg);
+      bottom: 13px;
     }
     .gallery {
       display: grid;
@@ -100,6 +134,12 @@
   </style>
 </head>
 <body>
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
   <button class="toggle-dark" id="darkToggle">
     <svg class="icon-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64 13.11A9 9 0 0 1 11 2a9 9 0 1 0 10.64 11.11z"/></svg>
     <svg class="icon-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 6.95-1.41-1.41M6.46 6.46 5.05 5.05m13.9 0-1.41 1.41M6.46 17.54l-1.41 1.41"/></svg>
@@ -622,6 +662,10 @@
         img.classList.toggle("active");
       });
       gallery.appendChild(img);
+    });
+
+    document.getElementById("hamburger").addEventListener("click", () => {
+      document.getElementById("hamburger").classList.toggle("active");
     });
 
     const darkToggle = document.getElementById("darkToggle");
