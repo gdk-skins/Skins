@@ -30,11 +30,12 @@
       position: fixed;
       top: 20px;
       right: 20px;
-      font-size: 24px;
-      background: transparent;
+      width: 32px;
+      height: 32px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/e/e1/Full_Moon_icon_-_white_outline.svg') center center no-repeat;
+      background-size: contain;
       border: none;
       cursor: pointer;
-      color: var(--text-color);
       z-index: 999;
     }
     .gallery {
@@ -62,7 +63,7 @@
   </style>
 </head>
 <body>
-  <button class="toggle-dark" id="darkToggle">🌙</button>
+  <button class="toggle-dark" id="darkToggle"></button>
   <h1>GDK Skins Gallery</h1>
   <div class="gallery" id="gallery"></div>
 
@@ -568,6 +569,7 @@
       const img = document.createElement("img");
       img.src = encodeURI(file);
       img.alt = file;
+      img.loading = "lazy";
       img.addEventListener("click", () => {
         document.querySelectorAll(".gallery img.active").forEach(el => {
           if (el !== img) el.classList.remove("active");
