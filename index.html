@@ -32,18 +32,31 @@
       right: 20px;
       width: 32px;
       height: 32px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
       border: none;
+      background: none;
       cursor: pointer;
       z-index: 999;
     }
-    body:not(.dark) .toggle-dark {
-      background-image: url('dark.png');
+    .toggle-dark svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      transition: opacity 0.3s ease;
     }
-    body.dark .toggle-dark {
-      background-image: url('light.png');
+    .toggle-dark .icon-light {
+      display: none;
+      fill: #000;
+    }
+    .toggle-dark .icon-dark {
+      display: block;
+      fill: #000;
+    }
+    body.dark .toggle-dark .icon-light {
+      display: block;
+      fill: #fff;
+    }
+    body.dark .toggle-dark .icon-dark {
+      display: none;
     }
     .gallery {
       display: grid;
@@ -70,7 +83,11 @@
   </style>
 </head>
 <body>
-  <button class="toggle-dark" id="darkToggle"></button>
+  <button class="toggle-dark" id="darkToggle">
+    <svg class="icon-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64 13.11A9 9 0 0 1 11 2a9 9 0 1 0 10.64 11.11z"/></svg>
+    <svg class="icon-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 6.95-1.41-1.41M6.46 6.46 5.05 5.05m13.9 0-1.41 1.41M6.46 17.54l-1.41 1.41"/></svg>
+  </button>
+
   <h1>GDK Skins Gallery</h1>
   <div class="gallery" id="gallery"></div>
 
