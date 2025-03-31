@@ -16,22 +16,24 @@
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
       gap: 10px;
       justify-items: center;
     }
     .gallery img {
-      width: 100px;
-      height: 100px;
+      width: 90px;
+      height: 90px;
       object-fit: cover;
       border-radius: 50%;
       border: 2px solid #ccc;
       transition: transform 0.2s ease;
       cursor: pointer;
     }
-    .gallery img:hover,
-    .gallery img:active {
+    .gallery img:hover {
       transform: scale(1.15);
+    }
+    .gallery img:active {
+      transform: scale(1.2);
     }
     @media (min-width: 768px) {
       .gallery img {
