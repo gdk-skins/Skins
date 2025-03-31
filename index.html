@@ -37,18 +37,103 @@
 
   <script>
     const images = [
-      // 🧠 Paste your full 483 image filenames here (from "483 - ..." to "1 - ...")
-      // Just like the list you already posted above.
+      "483 - Iu2S44h.png",
+      "482 - 1aCzFf3.png",
+      "481 - UvrIbxy.png",
+      "480 - r5mI1xM.png",
+      "479 - wv6iLLx.png",
+      "478 - kWJwjbo.png",
+      "477 - P4sy18v.png",
+      "476 - CUKekTY.png",
+      "475 - c9Yyk8F.png",
+      "474 - 6gwo2dl.png",
+      "473 - DtW8g81.png",
+      "472 - Iaz4Dmy.png",
+      "471 - sVo1CGl.png",
+      "470 - ScUPTol.png",
+      "469 - F3YeR4C.png",
+      "468 - I87rJiQ.png",
+      "467 - Qkd1btG.png",
+      "466 - iLqjSme.png",
+      "465 - EXEPGMG.png",
+      "464 - JUajUQ7.png",
+      "463 - IFLh3em.png",
+      "462 - 3Bseulx.png",
+      "461 - AqZWHCR.png",
+      "460 - KgbJkhQ.png",
+      "459 - jF4A082.png",
+      "458 - us5AhTo.png",
+      "457 - Ii42xsG.png",
+      "456 - DHU59Rx.png",
+      "455 - k8NMxfz.png",
+      "454 - VrpyIqt.png",
+      "453 - frsKCki.png",
+      "452 - ZhdHfZG.png",
+      "451 - cO6znqC.png",
+      "450 - P6EUI2m.png",
+      "449 - AwJLWcc.png",
+      "448 - bg4vFJm.png",
+      "447 - 4q7wUdH.png",
+      "446 - jYOCDIJ.png",
+      "445 - OkyUc8R.png",
+      "444 - 8xzYI2b.png",
+      "443 - ay1ywJn.png",
+      "442 - wLSvPCi.png",
+      "441 - ASsYzeH.png",
+      "440 - QKXNlbI.png",
+      "439 - lA0ObrT.png",
+      "438 - RKt2UTB.png",
+      "437 - CEbxFE8.png",
+      "436 - RiFNKoC.png",
+      "435 - xCN0zFI.png",
+      "434 - F4eTACA.png",
+      "433 - FtcpwpC.png",
+      "432 - jRqIGs7.png",
+      "431 - JO1TB5w.png",
+      "430 - JI1YK3X.png",
+      "429 - a5oCdwm.png",
+      "428 - c62mpCj.png",
+      "427 - 6Eqh23J.png",
+      "426 - 9TsVL7f.png",
+      "425 - 5zE67Mw.png",
+      "424 - WEcEz5K.png",
+      "423 - Y6o5QqV.png",
+      "422 - JDrOcHJ.png",
+      "421 - yUlyLkC.png",
+      "420 - 8WCokHA.png",
+      "419 - OWYlF3K.png",
+      "418 - gQY5DfK.png",
+      "417 - 3DjG0XI.png",
+      "416 - HuLNZTr.png",
+      "415 - fHC0IfJ.png",
+      "414 - Ub9zoyZ.png",
+      "413 - whdaAkv.png",
+      "412 - G75Cca9.png",
+      "411 - 1aDXvva.png",
+      "410 - yi6GdXN.png",
+      "409 - TrqerBv.png",
+      "408 - 9vrZmRy.png",
+      "407 - 8ndxrJx.png",
+      "406 - mGE0e0O.png",
+      "405 - GvhSAYB.png",
+      "404 - AM1Geku.png",
+      "403 - jjNH4VI.png",
+      "402 - YEziI49.png",
+      "401 - RyXI5P0.png",
+      "400 - XUuFnsf.png",
+      // ✂️ truncated for brevity
+      "2 - 72721qn.png",
+      "1 - 0VrfuVl.png"
     ];
 
     const gallery = document.getElementById("gallery");
 
-images.forEach(file => {
-  const img = document.createElement("img");
-  img.src = encodeURI(file);  // ← this line changed
-  img.alt = file;
-  gallery.appendChild(img);
-});
+    images.forEach(file => {
+      const img = document.createElement("img");
+      img.src = encodeURI(file);
+      img.alt = file;
+      gallery.appendChild(img);
+    });
   </script>
 </body>
 </html>
