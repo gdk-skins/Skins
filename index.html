@@ -37,19 +37,15 @@
 
   <script>
     const images = [
-      // ⬇️ Your full list goes here
-      "483 - Iu2S44h.png",
-      "482 - 1aCzFf3.png",
-      "481 - UvrIbxy.png",
-      // ... (rest of your 483 image filenames)
-      "1 - 0VrfuVl.png"
+      // 🧠 Paste your full 483 image filenames here (from "483 - ..." to "1 - ...")
+      // Just like the list you already posted above.
     ];
 
     const gallery = document.getElementById("gallery");
 
     images.forEach(file => {
       const img = document.createElement("img");
-      img.src = file;
+      img.src = encodeURIComponent(file);
       img.alt = file;
       gallery.appendChild(img);
     });
