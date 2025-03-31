@@ -536,6 +536,9 @@
       img.src = encodeURI(file);
       img.alt = file;
       img.addEventListener("click", () => {
+        document.querySelectorAll(".gallery img.active").forEach(el => {
+          if (el !== img) el.classList.remove("active");
+        });
         img.classList.toggle("active");
       });
       gallery.appendChild(img);
