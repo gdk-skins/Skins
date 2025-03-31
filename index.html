@@ -23,6 +23,11 @@
       width: 180px;
       border-radius: 8px;
       border: 1px solid #ccc;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -31,23 +36,23 @@
   <div class="gallery" id="gallery"></div>
 
   <script>
-    // Generate image names from 483 to 1
-    const images = [];
-    for (let i = 483; i >= 1; i--) {
-      images.push(`${i} - placeholder.png`);
-    }
+    const images = [
+      // ⬇️ Your full list goes here
+      "483 - Iu2S44h.png",
+      "482 - 1aCzFf3.png",
+      "481 - UvrIbxy.png",
+      // ... (rest of your 483 image filenames)
+      "1 - 0VrfuVl.png"
+    ];
 
-    // Create the image elements
     const gallery = document.getElementById("gallery");
+
     images.forEach(file => {
       const img = document.createElement("img");
       img.src = file;
       img.alt = file;
-      img.onerror = () => img.remove(); // remove if image doesn't exist
       gallery.appendChild(img);
     });
   </script>
 </body>
 </html>
-
-
