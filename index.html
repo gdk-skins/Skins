@@ -16,17 +16,17 @@
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       gap: 12px;
       justify-items: center;
     }
     .gallery img {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       object-fit: cover;
       border-radius: 50%;
       border: 2px solid #ccc;
-      transition: transform 0.2s ease;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
     }
     .gallery img:hover {
@@ -34,6 +34,12 @@
     }
     .gallery img:active {
       transform: scale(1.4);
+    }
+    @media (min-width: 768px) {
+      .gallery img {
+        width: 120px;
+        height: 120px;
+      }
     }
   </style>
 </head>
