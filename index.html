@@ -704,24 +704,33 @@
   "481 - UvrIbxy.png",
   "482 - 1aCzFf3.png",
   "483 - Iu2S44h.png"
-];
+    ];
 
     const gallery = document.getElementById("gallery");
 
-images.forEach(file => {
-  const img = document.createElement("img");
-  img.src = encodeURI(file);
-  img.alt = file;
-  img.loading = "lazy";
-  img.addEventListener("click", () => {
-    document.querySelectorAll(".gallery img.active").forEach(el => {
-      if (el !== img) el.classList.remove("active");
-    });
-    img.classList.toggle("active");
-  });
-  gallery.appendChild(img);
-});
+    images.forEach(file => {
+      const link = document.createElement("a");
+      link.href = encodeURI(file);
+      link.download = "";
+      link.style.display = "block";
 
+      const img = document.createElement("img");
+      img.src = encodeURI(file);
+      img.alt = file;
+      img.loading = "lazy";
+      img.draggable = true;
+      img.style.touchAction = "manipulation";
+
+      img.addEventListener("click", () => {
+        document.querySelectorAll(".gallery img.active").forEach(el => {
+          if (el !== img) el.classList.remove("active");
+        });
+        img.classList.toggle("active");
+      });
+
+      link.appendChild(img);
+      gallery.appendChild(link);
+    });
 
     const hamburger = document.getElementById("hamburger");
     const menu = document.getElementById("menu");
