@@ -709,28 +709,31 @@
     const gallery = document.getElementById("gallery");
 
     images.forEach(file => {
-      const link = document.createElement("a");
-      link.href = encodeURI(file);
-      link.download = "";
-      link.style.display = "block";
+  const link = document.createElement("a");
+  link.href = encodeURI(file);
+  link.style.display = "block";
 
-      const img = document.createElement("img");
-      img.src = encodeURI(file);
-      img.alt = file;
-      img.loading = "lazy";
-      img.draggable = true;
-      img.style.touchAction = "manipulation";
+  const img = document.createElement("img");
+  img.src = encodeURI(file);
+  img.alt = file;
+  img.loading = "lazy";
+  img.draggable = true;
+  img.style.touchAction = "manipulation";
 
-      img.addEventListener("click", () => {
-        document.querySelectorAll(".gallery img.active").forEach(el => {
-          if (el !== img) el.classList.remove("active");
-        });
-        img.classList.toggle("active");
-      });
+  img.addEventListener("click", (e) => {
+    // prevent following the link on tap
+    e.preventDefault();
 
-      link.appendChild(img);
-      gallery.appendChild(link);
+    document.querySelectorAll(".gallery img.active").forEach(el => {
+      if (el !== img) el.classList.remove("active");
     });
+    img.classList.toggle("active");
+  });
+
+  link.appendChild(img);
+  gallery.appendChild(link);
+});
+
 
     const hamburger = document.getElementById("hamburger");
     const menu = document.getElementById("menu");
