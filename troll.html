@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+1645x1080<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -156,13 +156,11 @@
       border-radius: 50%;
       border: 2px solid var(--border-color);
       transition: transform 0.4s cubic-bezier(0.25, 1.5, 0.5, 1);
-      cursor: pointer;
     }
     .gallery img.active {
       transform: scale(1.3);
     }
 
-    /* Hover zoom for desktop users only */
     @media (hover: hover) and (pointer: fine) {
       .gallery img:hover {
         transform: scale(1.3);
@@ -214,22 +212,32 @@
       "troll7.png",
       "troll8.png",
       "troll9.png"
-    ];
+       ];
 
     const gallery = document.getElementById("gallery");
 
     images.forEach(file => {
+      const link = document.createElement("a");
+      link.href = encodeURI(file);
+      link.download = "";
+      link.style.display = "block";
+
       const img = document.createElement("img");
       img.src = encodeURI(file);
       img.alt = file;
       img.loading = "lazy";
+      img.draggable = true;
+      img.style.touchAction = "manipulation";
+
       img.addEventListener("click", () => {
         document.querySelectorAll(".gallery img.active").forEach(el => {
           if (el !== img) el.classList.remove("active");
         });
         img.classList.toggle("active");
       });
-      gallery.appendChild(img);
+
+      link.appendChild(img);
+      gallery.appendChild(link);
     });
 
     const hamburger = document.getElementById("hamburger");
@@ -242,7 +250,6 @@
     const darkToggle = document.getElementById("darkToggle");
     const body = document.body;
 
-    // Load saved theme from localStorage
     if (localStorage.getItem("theme") === "dark") {
       body.classList.add("dark");
     }
