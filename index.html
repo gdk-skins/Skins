@@ -708,30 +708,18 @@
 
     const gallery = document.getElementById("gallery");
 
-    images.forEach(file => {
-  const link = document.createElement("a");
-  link.href = encodeURI(file);
-  link.style.display = "block";
-
+images.forEach(file => {
   const img = document.createElement("img");
   img.src = encodeURI(file);
   img.alt = file;
   img.loading = "lazy";
-  img.draggable = true;
-  img.style.touchAction = "manipulation";
-
-  img.addEventListener("click", (e) => {
-    // prevent following the link on tap
-    e.preventDefault();
-
+  img.addEventListener("click", () => {
     document.querySelectorAll(".gallery img.active").forEach(el => {
       if (el !== img) el.classList.remove("active");
     });
     img.classList.toggle("active");
   });
-
-  link.appendChild(img);
-  gallery.appendChild(link);
+  gallery.appendChild(img);
 });
 
 
