@@ -728,12 +728,11 @@
       img.draggable = true;
       img.style.touchAction = "manipulation";
 
-      img.addEventListener("click", () => {
-        document.querySelectorAll(".gallery img.active").forEach(el => {
-          if (el !== img) el.classList.remove("active");
-        });
-        img.classList.toggle("active");
-      });
+img.addEventListener("click", () => {
+  img.classList.remove("bounce");
+  void img.offsetWidth; // force reflow to retrigger animation
+  img.classList.add("bounce");
+});
 
       link.appendChild(img);
       gallery.appendChild(link);
